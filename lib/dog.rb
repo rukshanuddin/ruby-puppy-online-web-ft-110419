@@ -5,8 +5,7 @@ class Dog
     @@names = []
   def initialize(name)
     @name = name
-    @@all << self
-    @@names << self.name
+  self.save
   end
 
   def self.all
@@ -18,8 +17,14 @@ class Dog
   end
 
   def self.print_all
-    print @@names.uniq.join("\n")
+    @@all.each do |name|
+      print name
+    end
 
+  end
+
+  def save
+    @@all << self
   end
 
 end
