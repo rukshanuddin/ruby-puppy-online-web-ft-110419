@@ -1,12 +1,13 @@
 class Dog
 
+
+  @@all = []
+
   attr_accessor :name
-    @@all = []
-    @@names = []
+
   def initialize(name)
     @name = name
-    @@all << self
-    @@names << self.name
+    self.save
   end
 
   def self.all
@@ -14,12 +15,17 @@ class Dog
   end
 
   def self.clear_all
-    @@all = []
+    @@all.clear
   end
 
   def self.print_all
-    print @@names.uniq.join("\n")
+    puts @@all.map {|dog| dog.name}
+  
 
+  end
+
+  def save
+    @@all << self
   end
 
 end
